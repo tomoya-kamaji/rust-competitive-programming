@@ -34,13 +34,13 @@ regex = "1.10"
 # 各問題をbinとして定義
 # new_problem.shで自動的に追加される
 [[bin]]
-name = "intro-1"
-path = "src/bin/intro-1.rs"
+name = "1-basic-statistics"
+path = "src/bin/1-basic-statistics.rs"
 
 [[bin]]
-name = "intro-2"
-path = "src/bin/intro-2.rs"
+name = "2-prime-judge"
+path = "src/bin/2-prime-judge.rs"
 
 [[bin]]
-name = "intro-3"
-path = "src/bin/intro-3.rs"
+name = "3-palindrome-check"
+path = "src/bin/3-palindrome-check.rs"
