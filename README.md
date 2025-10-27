@@ -21,48 +21,46 @@ cargo build --release
 ### 1. 新しい問題の準備
 
 ```bash
-./new_problem.sh <問題名>
+just new <問題名>
 ```
 
 例：
 
 ```bash
-./new_problem.sh a
+just new a
 ```
 
 これにより以下のファイルが作成されます：
 
-- `src/bin/a.rs` - 解法を書くファイル
-- `tests/a/input1.txt` - サンプル入力
-- `tests/a/output1.txt` - サンプル出力
+- `problems/a/problem.md` - 問題文を記述
+- `problems/a/solution.rs` - 実装とテスト
 
 ### 2. 解法の実装
 
-`src/bin/<問題名>.rs` に解法を実装します。テンプレートが自動的にコピーされます。
+`problems/<問題名>/solution.rs` に解法を実装します。自動的に `src/bin/<問題名>.rs` に同期されます。
 
 ### 3. テストの実行
 
 ```bash
-./test.sh <問題名>
+just test <問題名>
 ```
 
 例：
 
 ```bash
-./test.sh a
+just test a
 ```
 
 ### 4. プログラムの実行
 
 ```bash
-./run.sh <問題名> [入力ファイル]
+just run <問題名>
 ```
 
 例：
 
 ```bash
-./run.sh a                    # 標準入力から
-./run.sh a tests/a/input1.txt # ファイルから
+just run a
 ```
 
 ## 含まれているライブラリ
@@ -102,22 +100,24 @@ competitive_programming/
 ├── Cargo.toml          # 依存関係と最適化設定
 ├── template.rs         # 問題用テンプレート
 ├── new_problem.sh      # 新しい問題の準備
-├── run.sh             # プログラムの実行
-├── test.sh            # テストの実行
+├── Justfile           # タスクランナー
 ├── src/
 │   ├── main.rs        # メインファイル
 │   ├── lib.rs         # ユーティリティライブラリ
-│   └── bin/           # 各問題の解法
+│   └── bin/           # 各問題の解法（自動生成）
 │       ├── a.rs
 │       ├── b.rs
 │       └── ...
-└── tests/             # テストケース
+└── problems/          # 問題の実装とドキュメント
     ├── a/
-    │   ├── input1.txt
-    │   ├── output1.txt
-    │   ├── input2.txt
-    │   └── output2.txt
-    └── ...
+    │   ├── problem.md  # 問題文
+    │   └── solution.rs # 実装とテスト
+    ├── b/
+    │   ├── problem.md
+    │   └── solution.rs
+    └── template/
+        ├── problem.md
+        └── solution.rs
 ```
 
 ## 最適化設定
