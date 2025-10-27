@@ -44,3 +44,11 @@ path = "src/bin/2-prime-judge.rs"
 [[bin]]
 name = "3-palindrome-check"
 path = "src/bin/3-palindrome-check.rs"
+
+[[bin]]
+name = "4-my-problem"
+path = "src/bin/4-my-problem.rs"
+
+[[bin]]
+name = "4-sum-of-digits"
+path = "src/bin/4-sum-of-digits.rs"
