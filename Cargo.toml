@@ -1,0 +1,32 @@
+[package]
+name = "cp"
+version = "0.1.0"
+edition = "2021"
+
+# 競技プログラミング用の最適化設定
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
+
+[profile.dev]
+opt-level = 1
+
+# 競技プログラミングでよく使われるライブラリ
+[dependencies]
+proconio = "0.4"
+itertools = "0.12"
+num = "0.4"
+num-bigint = "0.4"
+num-rational = "0.4"
+num-complex = "0.4"
+num-integer = "0.1"
+num-traits = "0.2"
+petgraph = "0.6"
+indexmap = "2.0"
+rustc-hash = "1.1"
+smallvec = "1.11"
+regex = "1.10"
+
+# デバッグ用
+[dev-dependencies]
