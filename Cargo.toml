@@ -30,3 +30,17 @@ regex = "1.10"
 
 # デバッグ用
 [dev-dependencies]
+
+# 各問題をbinとして定義
+# new_problem.shで自動的に追加される
+[[bin]]
+name = "intro-1"
+path = "src/bin/intro-1.rs"
+
+[[bin]]
+name = "intro-2"
+path = "src/bin/intro-2.rs"
+
+[[bin]]
+name = "intro-3"
+path = "src/bin/intro-3.rs"

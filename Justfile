@@ -12,18 +12,6 @@ default:
 # Usage: just new <問題名>
 new problem:
     @./new_problem.sh {{problem}}
-    @just sync {{problem}}
-
-# 問題のsolution.rsをsrc/binに同期（ビルド用）
-# Usage: just sync <問題名>
-sync problem:
-    @if [ -f "problems/{{problem}}/solution.rs" ]; then \
-        cp problems/{{problem}}/solution.rs src/bin/{{problem}}.rs; \
-        echo "✅ src/bin/{{problem}}.rs を更新しました。"; \
-    else \
-        echo "❌ problems/{{problem}}/solution.rs が見つかりません。"; \
-        exit 1; \
-    fi
 
 # ========================================
 # ビルド・実行
@@ -32,9 +20,8 @@ sync problem:
 # 指定された問題をリリースビルド
 # Usage: just build <問題名>
 build problem:
-    @just sync {{problem}}
     @echo "ビルド中..."
-    cargo build --bin {{problem}} --release
+    cargo build --release --bin {{problem}}
 
 # 指定された問題を実行
 # Usage: just run <問題名> [入力ファイル]
@@ -108,8 +95,8 @@ unit-test:
 # 問題リストを表示
 list:
     @echo "📋 問題一覧:"
-    @if [ -d "problems" ]; then \
-        ls problems/*/solution.rs 2>/dev/null | sed 's|problems/||' | sed 's|/solution.rs||' | grep -v '^template$' | sort; \
+    @if [ -d "src/bin" ]; then \
+        ls src/bin/*.rs 2>/dev/null | sed 's|src/bin/||' | sed 's|\.rs||' | sort; \
     else \
         echo "問題がありません"; \
     fi
